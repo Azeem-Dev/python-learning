@@ -10,7 +10,8 @@ if not os.path.exists(photos_out):
 for filename in os.listdir(photos_in):
     img = Image.open(f'{photos_in}/{filename}')
 
-    edit = img.filter(ImageFilter.SHARPEN).convert("L").rotate(-90)
+    edit = img.filter(ImageFilter.SHARPEN).convert("L")
+    # .rotate(-90)
 
     factor = 1.5
 
@@ -20,4 +21,4 @@ for filename in os.listdir(photos_in):
 
     clean_name = os.path.splitext(filename)[0]
 
-    edit.save(f'.{photos_out}/{clean_name}_edited.jpg')
+    edit.save(os.path.join(photos_out, f"{clean_name}_edited.jpg"))
