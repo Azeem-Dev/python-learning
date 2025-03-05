@@ -34,4 +34,4 @@ yt = YouTube(link, on_progress_callback=on_progress)
 print(yt.title)
 
 ys = yt.streams.get_highest_resolution()
-ys.download("./downloaded")
+ys.download(output_path="./downloaded")
